@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rural Transit Analyzer</title>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: 50px auto; padding: 20px; }
+        h1 { color: #2c3e50; }
+        input, select { width: 100%; padding: 8px; margin: 8px 0; }
+        button { background: #2ecc71; color: white; padding: 10px 20px; border: none; cursor: pointer; width: 100%; font-size: 16px; }
+        .result { margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>🚌 Rural Transit Analyzer</h1>
+    <p>Gaav ki details bharo aur jaano ki transport milni chahiye ya nahi</p>
+
+    <form action="/predict" method="POST">
+        <label>Population:</label>
+        <input type="number" name="population" placeholder="Gaav ki population" required>
+
+        <label>Bus Stop se Distance (km):</label>
+        <input type="number" step="0.1" name="distance_bus" placeholder="Jaise: 2.5" required>
+
+        <label>Meerut se Distance (km):</label>
+        <input type="number" step="0.1" name="distance_meerut" placeholder="Jaise: 15" required>
+
+        <label>Road Paved Hai?</label>
+        <select name="road_paved">
+            <option value="1">Haan - Pakki Sadak Hai</option>
+            <option value="0">Nahi - Kacchi Sadak Hai</option>
+        </select>
+
+        <br><br>
+        <button type="submit">🔍 Predict Karo</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <strong>Result:</strong> {{ result }}
+    </div>
+    {% endif %}
+</body>
+</html>
