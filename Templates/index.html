@@ -12,26 +12,26 @@
 </head>
 <body>
     <h1>🚌 Rural Transit Analyzer</h1>
-    <p>Gaav ki details bharo aur jaano ki transport milni chahiye ya nahi</p>
+    <p><p>Enter village details to predict if direct transport should be available</p></p>
 
     <form action="/predict" method="POST">
         <label>Population:</label>
-        <input type="number" name="population" placeholder="Gaav ki population" required>
+        <input type="number" name="population" placeholder="Population of the Village" required>
 
         <label>Bus Stop se Distance (km):</label>
-        <input type="number" step="0.1" name="distance_bus" placeholder="Jaise: 2.5" required>
+        <input type="number" step="0.1" name="distance_bus" placeholder="eg: 2.5" required>
 
         <label>Meerut se Distance (km):</label>
-        <input type="number" step="0.1" name="distance_meerut" placeholder="Jaise: 15" required>
+        <input type="number" step="0.1" name="distance_meerut" placeholder="eg: 15" required>
 
-        <label>Road Paved Hai?</label>
+        <label>Is the Road Paved?</label>
         <select name="road_paved">
-            <option value="1">Haan - Pakki Sadak Hai</option>
-            <option value="0">Nahi - Kacchi Sadak Hai</option>
+            <option value="1">Yes - Road is Paved</option>
+            <option value="0">N0 - Unpaved Road</option>
         </select>
 
         <br><br>
-        <button type="submit">🔍 Predict Karo</button>
+        <button type="submit">🔍 Predict</button>
     </form>
 
     {% if result %}
