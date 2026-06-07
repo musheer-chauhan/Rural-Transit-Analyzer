@@ -4,7 +4,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Model load karo
+# Load the trained model
 with open('Model/model.pkl', 'rb') as f:
     model = pickle.load(f)
 
